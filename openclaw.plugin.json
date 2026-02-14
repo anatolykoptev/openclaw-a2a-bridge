@@ -1,0 +1,31 @@
+{
+  "id": "a2a-bridge",
+  "name": "A2A Bridge",
+  "description": "Standard A2A protocol bridge — serves agent card and JSON-RPC endpoint, provides tool for calling remote A2A agents",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "secret": {
+        "type": "string",
+        "description": "Bearer token for authenticating inbound A2A requests"
+      },
+      "remoteAgents": {
+        "type": "object",
+        "description": "Remote A2A agents keyed by ID",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "url": { "type": "string" },
+            "token": { "type": "string" },
+            "alias": { "type": "string" }
+          },
+          "required": ["url"]
+        }
+      }
+    }
+  },
+  "uiHints": {
+    "secret": { "label": "A2A Bearer Secret", "sensitive": true }
+  }
+}
