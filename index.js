@@ -53,10 +53,11 @@ function sendJson(res, status, body) {
 // Agent Card
 // ---------------------------------------------------------------------------
 
-function buildAgentCard(port) {
+function buildAgentCard(port, config) {
   return {
-    name: "Krolik",
+    name: config.agentName ?? "OpenClaw",
     description:
+      config.agentDescription ??
       "AI assistant with access to tools, memory, web search, code execution, and multi-agent coordination.",
     url: `http://127.0.0.1:${port}/a2a`,
     preferredTransport: "JSONRPC",
@@ -256,7 +257,7 @@ const a2aBridgePlugin = {
     // -----------------------------------------------------------------------
     // A. Agent card route (public, no auth)
     // -----------------------------------------------------------------------
-    const agentCard = buildAgentCard(port);
+    const agentCard = buildAgentCard(port, pluginConfig);
 
     api.registerHttpRoute({
       path: "/.well-known/agent-card.json",

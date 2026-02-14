@@ -1,7 +1,8 @@
 {
   "id": "a2a-bridge",
   "name": "A2A Bridge",
-  "description": "Standard A2A protocol bridge — serves agent card and JSON-RPC endpoint, provides tool for calling remote A2A agents",
+  "version": "1.0.0",
+  "description": "Standard A2A protocol bridge — serves agent card and JSON-RPC endpoint, provides tools for calling remote A2A agents",
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -9,6 +10,14 @@
       "secret": {
         "type": "string",
         "description": "Bearer token for authenticating inbound A2A requests"
+      },
+      "agentName": {
+        "type": "string",
+        "description": "Name advertised in the agent card (default: OpenClaw)"
+      },
+      "agentDescription": {
+        "type": "string",
+        "description": "Description advertised in the agent card"
       },
       "remoteAgents": {
         "type": "object",

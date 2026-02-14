@@ -1,8 +1,22 @@
 {
   "name": "a2a-bridge",
   "version": "1.0.0",
+  "description": "A2A protocol bridge for OpenClaw — agent card, JSON-RPC endpoint, and remote agent calling",
   "type": "module",
   "main": "index.js",
+  "license": "MIT",
+  "author": "Anatoly Koptev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anatolykoptev/openclaw-a2a-bridge.git"
+  },
+  "keywords": [
+    "openclaw",
+    "a2a",
+    "agent-to-agent",
+    "plugin",
+    "json-rpc"
+  ],
   "openclaw": {
     "extensions": ["./index.js"]
   }
