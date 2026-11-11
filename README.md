@@ -10,7 +10,7 @@ Bridges the standard [A2A protocol](https://google.github.io/A2A/) (Agent-to-Age
 
 ```
 External Agent                        OpenClaw (:18789)
-├── a2a_call("krolik")   ──────→      ├── a2a-bridge plugin
+├── a2a_call("agent")    ──────→      ├── a2a-bridge plugin
 │                                     │   ├── /.well-known/agent-card.json
 │                                     │   ├── /a2a (JSON-RPC)
 │                                     │   └── → /v1/chat/completions
