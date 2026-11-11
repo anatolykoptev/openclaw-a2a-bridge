@@ -158,4 +158,4 @@ Inbound requests are authenticated via `Authorization: Bearer <token>` header (o
 
 ## License
 
-MIT, see [LICENSE](LICENSE). More documents: [docs/INDEX.md](docs/INDEX.md).
+Apache-2.0, see [LICENSE](LICENSE). More documents: [docs/INDEX.md](docs/INDEX.md).
