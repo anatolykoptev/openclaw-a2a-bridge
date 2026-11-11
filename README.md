@@ -74,6 +74,8 @@ Restart OpenClaw to load the plugin.
 | Field | Type | Description |
 |-------|------|-------------|
 | `secret` | `string` | Bearer token for authenticating inbound A2A requests. Leave empty to disable auth. |
+| `agentName` | `string` | Name advertised in the agent card (default: `OpenClaw`). |
+| `agentDescription` | `string` | Description advertised in the agent card. |
 | `remoteAgents` | `object` | Map of remote A2A agents keyed by ID. |
 | `remoteAgents.<id>.url` | `string` | Base URL of the remote agent (required). |
 | `remoteAgents.<id>.token` | `string` | Bearer token for calling the remote agent. |
@@ -81,7 +83,7 @@ Restart OpenClaw to load the plugin.
 
 ### Agent card customization
 
-The agent card served at `/.well-known/agent-card.json` uses the agent name from OpenClaw config. The card advertises:
+The agent card served at `/.well-known/agent-card.json` uses the plugin's `agentName` and `agentDescription` options. The card advertises:
 
 - Protocol version: `0.3.0`
 - Transport: JSON-RPC (non-streaming)
@@ -152,8 +154,8 @@ Response:
 
 ### Authentication
 
-Inbound requests are authenticated via `Authorization: Bearer <token>` header (or `X-Webhook-Secret` for compatibility). The token is compared against the configured `secret` using constant-time comparison.
+Inbound requests are authenticated via `Authorization: Bearer <token>` header (or `X-Webhook-Secret` for compatibility). The token is compared against the configured `secret` with a constant-time loop. With no `secret` configured, inbound requests are not authenticated.
 
 ## License
 
-MIT
+MIT, see [LICENSE](LICENSE). More documents: [docs/INDEX.md](docs/INDEX.md).
